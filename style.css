@@ -1,0 +1,120 @@
+/* KSA FISHERIES - Premium Apple Style CSS Part 1 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0077b6;
+    letter-spacing: 1px;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #0077b6;
+}
+
+
+/* Hero Section */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 8% 50px;
+    background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("fish.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.hero-content {
+    color:white;
+    max-width:600px;
+    animation: fadeUp 1.2s ease;
+}
+
+
+.hero h1 {
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+
+.hero p {
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+
+.btn {
+    display:inline-block;
+    padding:15px 35px;
+    background:#0077b6;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+
+.btn:hover {
+    transform:scale(1.08);
+    background:#023e8a;
+}
+
+
+/* Animation */
+
+@keyframes fadeUp {
+
+from {
+    opacity:0;
+    transform:translateY(40px);
+}
+
+to {
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
