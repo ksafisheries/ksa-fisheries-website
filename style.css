@@ -477,3 +477,87 @@ footer{
 }
 
 }
+/* Premium Customer Reviews */
+
+.reviews{
+    padding:100px 8%;
+    background:white;
+    text-align:center;
+}
+
+
+.reviews h2{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+
+.review-sub{
+    color:#666;
+    font-size:18px;
+    margin-bottom:50px;
+}
+
+
+.review-cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+.review-box{
+    width:300px;
+    padding:30px;
+    background:#f8fafc;
+    border-radius:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+    transition:.4s;
+}
+
+
+.review-box:hover{
+    transform:translateY(-10px);
+}
+
+
+.stars{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+
+.review-box p{
+    font-size:16px;
+    line-height:1.6;
+    color:#444;
+}
+
+
+.review-box h3{
+    margin-top:20px;
+    font-size:20px;
+}
+
+
+
+/* Mobile Reviews */
+
+@media(max-width:768px){
+
+.reviews{
+    padding:70px 5%;
+}
+
+
+.reviews h2{
+    font-size:32px;
+}
+
+
+.review-box{
+    width:100%;
+}
+
+}
