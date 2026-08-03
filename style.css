@@ -72,10 +72,18 @@ nav a:hover {
 }
 
 
+@media(max-width:768px){
+
+.hero {
+    min-height: 60vh;
+    padding:100px 5% 40px;
+}
+
 .hero h1 {
-    font-size:70px;
-    line-height:1.1;
-    margin-bottom:20px;
+    font-size:38px;
+}
+
+}
 }
 
 
@@ -141,7 +149,7 @@ to {
     gap:30px;
     flex-wrap:wrap;
 }
-}
+
 
 
 .card {
