@@ -58,7 +58,7 @@ nav a:hover {
     padding: 120px 8% 50px;
     background:
     linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
-    url("fish.jpg");
+    url("IMG_3596.jpeg");
 
     background-size: cover;
     background-position: center;
@@ -135,11 +135,12 @@ to {
 }
 
 
-.product-container {
+.cards {
     display:flex;
     justify-content:center;
     gap:30px;
     flex-wrap:wrap;
+}
 }
 
 
