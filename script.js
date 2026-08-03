@@ -63,3 +63,21 @@ cards.forEach(card => {
     observer.observe(card);
 
 });
+
+// Image reveal animation
+
+const images = document.querySelectorAll("img");
+
+images.forEach(img=>{
+
+    img.style.opacity="0";
+
+    img.style.transition="1s";
+
+    img.addEventListener("load",()=>{
+
+        img.style.opacity="1";
+
+    });
+
+});
