@@ -363,3 +363,35 @@ footer{
 }
 
 }
+.order-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    background:#0077b6;
+    color:white;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+
+.order-btn:hover{
+    background:#023e8a;
+    transform:scale(1.05);
+}
+
+
+.card{
+    overflow:hidden;
+}
+
+
+.card img{
+    transition:.5s;
+}
+
+
+.card:hover img{
+    transform:scale(1.08);
+}
