@@ -296,3 +296,70 @@ footer{
 }
 
 }
+/* Why Choose Section */
+
+.why{
+    padding:80px 8%;
+    background:white;
+    text-align:center;
+}
+
+.why h2{
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+
+.why-cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+.why-box{
+    width:300px;
+    padding:30px;
+    border-radius:25px;
+    background:#f8fafc;
+    box-shadow:0 15px 30px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+
+.why-box:hover{
+    transform:translateY(-10px);
+}
+
+
+.why-box i{
+    font-size:40px;
+    color:#0077b6;
+    margin-bottom:20px;
+}
+
+
+.why-box h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+
+.why-box p{
+    color:#555;
+    line-height:1.5;
+}
+
+
+@media(max-width:768px){
+
+.why h2{
+    font-size:32px;
+}
+
+.why-box{
+    width:100%;
+}
+
+}
