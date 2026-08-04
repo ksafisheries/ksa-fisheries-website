@@ -144,7 +144,7 @@ body{
 
 .card img{
     width:100%;
-    height:180px;
+    height:220px;
     object-fit:cover;
     object-position:center;
     display:block;
@@ -288,7 +288,7 @@ footer{
 
 .card img{
     width:100%;
-    height:180px;
+    height:220px;
     object-fit:cover;
     object-position:center;
     display:block;
@@ -405,6 +405,9 @@ footer{
 .card:hover{
     transform:translateY(-10px);
     box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+.card:hover img{
+    transform:scale(1.05);
 }
 /* Premium Apple Style Gallery */
 
