@@ -1,82 +1,239 @@
-// KSA FISHERIES Premium Website Script
+// =========================================
+// KSA FISHERIES — PREMIUM WEBSITE SCRIPT
+// =========================================
 
-// Smooth scrolling for menu links
+document.addEventListener("DOMContentLoaded", () => {
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+    // -------------------------------------
+    // PAGE LOADER
+    // -------------------------------------
 
-    link.addEventListener("click", function(e){
+    const loader = document.querySelector(".page-loader");
 
-        e.preventDefault();
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            loader.classList.add("hide");
+        }, 500);
+    });
 
-        document.querySelector(this.getAttribute("href"))
-        .scrollIntoView({
-            behavior:"smooth"
+
+    // -------------------------------------
+    // NAVBAR SCROLL EFFECT
+    // -------------------------------------
+
+    const navbar = document.querySelector(".navbar");
+
+    function updateNavbar(){
+        if(window.scrollY > 40){
+            navbar.classList.add("scrolled");
+        }else{
+            navbar.classList.remove("scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", updateNavbar);
+    updateNavbar();
+
+
+    // -------------------------------------
+    // MOBILE MENU
+    // -------------------------------------
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if(menuBtn && mobileMenu){
+
+        menuBtn.addEventListener("click", () => {
+
+            mobileMenu.classList.toggle("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            if(mobileMenu.classList.contains("active")){
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+                document.body.classList.add("no-scroll");
+            }else{
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+                document.body.classList.remove("no-scroll");
+            }
+
+        });
+
+
+        // Close mobile menu after clicking link
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mobileMenu.classList.remove("active");
+
+                const icon = menuBtn.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+                document.body.classList.remove("no-scroll");
+
+            });
+
+        });
+
+    }
+
+
+    // -------------------------------------
+    // SMOOTH SCROLL
+    // -------------------------------------
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", function(e){
+
+            const targetId = this.getAttribute("href");
+
+            if(targetId === "#"){
+                return;
+            }
+
+            const target = document.querySelector(targetId);
+
+            if(target){
+
+                e.preventDefault();
+
+                const navbarHeight = navbar.offsetHeight;
+
+                const position =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    navbarHeight;
+
+                window.scrollTo({
+                    top:position,
+                    behavior:"smooth"
+                });
+
+            }
+
         });
 
     });
 
-});
+
+    // -------------------------------------
+    // REVEAL ANIMATIONS
+    // -------------------------------------
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.12
+        }
+
+    );
 
 
-// Header animation on scroll
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
 
-window.addEventListener("scroll", () => {
 
-    const header = document.querySelector("header");
+    // -------------------------------------
+    // GALLERY LIGHTBOX
+    // -------------------------------------
 
-    if(window.scrollY > 50){
-        header.style.background = "rgba(255,255,255,0.95)";
+    const galleryCards = document.querySelectorAll(".gallery-card");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    galleryCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const image = card.querySelector("img");
+
+            if(!image) return;
+
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+
+            lightbox.classList.add("active");
+            document.body.classList.add("no-scroll");
+
+        });
+
+    });
+
+
+    function closeGallery(){
+
+        lightbox.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+
+        setTimeout(() => {
+            lightboxImage.src = "";
+        }, 300);
+
     }
-    else{
-        header.style.background = "rgba(255,255,255,0.8)";
-    }
-
-});
 
 
-// Product card reveal animation
+    closeLightbox.addEventListener("click", closeGallery);
 
-const cards = document.querySelectorAll(".card");
 
-const observer = new IntersectionObserver(entries => {
+    lightbox.addEventListener("click", (e) => {
 
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-
+        if(e.target === lightbox){
+            closeGallery();
         }
 
     });
 
-});
+
+    // ESC key closes gallery
+
+    document.addEventListener("keydown", (e) => {
+
+        if(e.key === "Escape"){
+            closeGallery();
+        }
+
+    });
 
 
-cards.forEach(card => {
+    // -------------------------------------
+    // IMAGE FALLBACK
+    // -------------------------------------
 
-    card.style.opacity = "0";
-    card.style.transform = "translateY(40px)";
-    card.style.transition = "0.8s";
+    document.querySelectorAll("img").forEach(img => {
 
-    observer.observe(card);
+        img.addEventListener("error", () => {
 
-});
+            console.warn("Image could not be loaded:", img.src);
 
-// Image reveal animation
-
-const images = document.querySelectorAll("img");
-
-images.forEach(img=>{
-
-    img.style.opacity="0";
-
-    img.style.transition="1s";
-
-    img.addEventListener("load",()=>{
-
-        img.style.opacity="1";
+        });
 
     });
 
