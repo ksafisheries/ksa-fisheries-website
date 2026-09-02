@@ -1201,3 +1201,396 @@ footer > p{
         transition-duration:.01ms!important;
     }
 }
+/* ===========================================================
+   KSA FISHERIES — PREMIUM ANIMATION UPGRADE
+=========================================================== */
+
+/* ---------- HERO CINEMATIC MOTION ---------- */
+
+.hero-image-layer{
+  animation: heroZoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroZoom{
+  0%{
+    transform:scale(1.02);
+  }
+  100%{
+    transform:scale(1.10) translate3d(-1%, -1%, 0);
+  }
+}
+
+.hero-ripples{
+  animation:oceanGlow 9s ease-in-out infinite alternate;
+}
+
+@keyframes oceanGlow{
+  0%{
+    transform:scale(1);
+    opacity:.28;
+  }
+
+  50%{
+    transform:scale(1.06) translate3d(-1%,1%,0);
+    opacity:.42;
+  }
+
+  100%{
+    transform:scale(1.12) translate3d(1%,-1%,0);
+    opacity:.30;
+  }
+}
+
+
+/* ---------- HERO GRADIENT FLOW ---------- */
+
+.hero-gradient{
+  background-size:180% 180%;
+  animation:gradientFlow 10s ease infinite;
+}
+
+@keyframes gradientFlow{
+  0%,100%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+}
+
+
+/* ---------- BUBBLES ---------- */
+
+.bubble{
+  will-change:transform, opacity;
+  filter:blur(.15px);
+}
+
+.b1{
+  animation-duration:12s;
+}
+
+.b2{
+  animation-duration:15s;
+}
+
+.b3{
+  animation-duration:17s;
+}
+
+.b4{
+  animation-duration:11s;
+}
+
+.b5{
+  animation-duration:14s;
+}
+
+
+/* ---------- PREMIUM BUTTON SHINE ---------- */
+
+.btn{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.btn::before{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-45%;
+  width:35%;
+  height:340%;
+  background:rgba(255,255,255,.22);
+  transform:rotate(22deg);
+  transition:left .75s ease;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.btn:hover::before{
+  left:125%;
+}
+
+
+/* ---------- PRODUCT CARD ---------- */
+
+.product-card{
+  transform:translateZ(0);
+}
+
+.product-card:hover{
+  transform:translateY(-10px) scale(1.012);
+}
+
+
+/* ---------- PRODUCT IMAGE SHINE ---------- */
+
+.product-media{
+  position:relative;
+}
+
+.product-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255,255,255,.20) 50%,
+    transparent 75%
+  );
+
+  transform:translateX(-120%);
+  transition:transform .9s ease;
+  pointer-events:none;
+}
+
+.product-card:hover .product-media::after{
+  transform:translateX(120%);
+}
+
+
+/* ---------- FEATURE CARDS ---------- */
+
+.feature-card{
+  transition:
+    transform .45s var(--ease),
+    box-shadow .45s var(--ease),
+    border-color .45s var(--ease);
+}
+
+.feature-card:hover{
+  transform:translateY(-8px) scale(1.015);
+}
+
+
+/* ---------- FEATURE ICON ---------- */
+
+.feature-icon{
+  transition:
+    transform .45s var(--ease),
+    box-shadow .45s var(--ease);
+}
+
+.feature-card:hover .feature-icon{
+  transform:translateY(-4px) rotate(-5deg) scale(1.08);
+
+  box-shadow:
+    0 12px 28px rgba(15,92,153,.28);
+}
+
+
+/* ---------- STAT CARDS ---------- */
+
+.stat-card{
+  transition:
+    transform .4s var(--ease),
+    box-shadow .4s var(--ease);
+}
+
+.stat-card:hover{
+  transform:translateY(-6px) scale(1.015);
+}
+
+.stat-card svg{
+  transition:transform .35s var(--ease);
+}
+
+.stat-card:hover svg{
+  transform:scale(1.15) rotate(-5deg);
+}
+
+
+/* ---------- ABOUT IMAGE ---------- */
+
+.media-frame{
+  transition:
+    transform .55s var(--ease),
+    box-shadow .55s var(--ease);
+}
+
+.media-frame:hover{
+  transform:translateY(-8px);
+
+  box-shadow:
+    0 25px 60px rgba(6,38,63,.20);
+}
+
+.media-frame img{
+  will-change:transform;
+}
+
+
+/* ---------- SECTION TITLE LINE ---------- */
+
+.section-head h2{
+  position:relative;
+  display:inline-block;
+}
+
+.section-head h2::after{
+  content:"";
+
+  display:block;
+
+  width:55px;
+  height:3px;
+
+  margin:13px auto 0;
+
+  border-radius:100px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--sky),
+      var(--ocean)
+    );
+
+  transform:scaleX(.35);
+
+  transition:
+    transform .7s var(--ease);
+}
+
+.section-head:hover h2::after{
+  transform:scaleX(1);
+}
+
+
+/* ---------- PROCESS STEPS ---------- */
+
+.process-step{
+  transition:transform .45s var(--ease);
+}
+
+.process-step:hover{
+  transform:translateY(-7px);
+}
+
+.step-num{
+  transition:
+    transform .4s var(--ease),
+    background .4s var(--ease),
+    color .4s var(--ease),
+    box-shadow .4s var(--ease);
+}
+
+.process-step:hover .step-num{
+  transform:scale(1.15);
+
+  background:var(--ocean);
+
+  color:#fff;
+
+  box-shadow:
+    0 10px 25px rgba(15,92,153,.28);
+}
+
+
+/* ---------- CONTACT FORM ---------- */
+
+.contact-form{
+  transition:
+    transform .45s var(--ease),
+    box-shadow .45s var(--ease);
+}
+
+.contact-form:focus-within{
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 24px 60px rgba(6,38,63,.17);
+}
+
+
+/* ---------- NAVBAR LOGO ---------- */
+
+.logo{
+  transition:transform .35s var(--ease);
+}
+
+.logo:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+
+/* ---------- FOOTER LINKS ---------- */
+
+.footer-links a{
+  transition:
+    color .25s ease,
+    transform .25s ease;
+}
+
+.footer-links a:hover{
+  transform:translateY(-2px);
+}
+
+
+/* ---------- WHATSAPP FLOAT ---------- */
+
+.whatsapp-float{
+  animation:
+    whatsappFloat 3s ease-in-out infinite;
+}
+
+.whatsapp-float:hover{
+  animation:none;
+}
+
+@keyframes whatsappFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-6px);
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:640px){
+
+  .hero-image-layer{
+    animation-duration:22s;
+  }
+
+  .product-card:hover{
+    transform:translateY(-6px);
+  }
+
+  .feature-card:hover{
+    transform:translateY(-5px);
+  }
+
+  .media-frame:hover{
+    transform:translateY(-5px);
+  }
+
+  .btn:hover{
+    transform:translateY(-2px);
+  }
+
+}
+
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media(prefers-reduced-motion:reduce){
+
+  .hero-image-layer,
+  .hero-ripples,
+  .hero-gradient,
+  .whatsapp-float{
+    animation:none !important;
+  }
+
+}
